@@ -15,6 +15,7 @@ void main()
 	Queue_Start = CreateQueue();
 	while(true)
 	{
+		//cout<<Rus(strIntro);
 		cout<<Rus("$ ");
 		cin>>z;
 		switch (z)
@@ -22,6 +23,7 @@ void main()
 			case (1): AddTask(Queue_Start); break;
 			case (2): PrintQueue(Queue_Start); break;
 			case (3): PeekAtNext(Queue_Start); break;
+			case (4): GetNext(Queue_Start); break;
 		}
 		
 		if (z==0) break; //Выход из главного цикла

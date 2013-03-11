@@ -21,7 +21,7 @@ struct List
 };
 typedef List *Queue;
 
-//Функция создания очереди
+//Функция создания очереди и возврощение указателя на головной элемент
 Queue CreateQueue()
 {
 	string strInput = "start"; 
@@ -48,7 +48,6 @@ void PrintQueue(Queue &Start)
 			else curr = curr->next;
 	}
 	cout<<"**************************\n";
-
 }
 
 //Функция добавления элемента в очередь
@@ -108,24 +107,35 @@ Queue GetMaxPriority_Pointer(Queue &head)
 	return taget;
 }
 
-//Вывод элемента с наивысшим приорететом
+//Вывод элемента с наивысшим приорететом без извлечения
 void PeekAtNext(Queue &head)
 {
 	Queue taget = GetMaxPriority_Pointer(head);
-	if (taget == NULL) 
+	if (taget == NULL) //Проверка возрощаймого значения
 	{
 		cout<<Rus("В очереди нет задач!\n");
 		return;
 	}
 	cout<<Rus("Задача с высшим приорететом: ")<<taget->task<<endl;
-	cout<<Rus("Приоретет: ")<<taget->priority<<endl;
+	cout<<Rus("Приоретет задачи: ")<<taget->priority<<endl;
 }
-/*
+
 //Извлечение элемента с наивысшим приорететом
 void GetNext(Queue &head)
 {
-
-
-
+	Queue a,b;
+	a = GetMaxPriority_Pointer(head);
+	if (a == NULL) //Проверка возрощаймого значения
+	{
+		cout<<Rus("В очереди нет задач!\n");
+		return;
+	}
+	b = head->next; //Ссылка на первый элемент списка
+	for(;b->next!=a;) //Поиск элемента перед приорететным
+		b = b->next;
+	cout<<Rus("Задача с высшим приорететом: ")<< a->task <<endl;
+	cout<<Rus("Приоретет задачи: ")<< a->priority <<endl;
+	b->next = a->next; //Перенос указателей
+	delete(a); //Освобождение памяти
 }
-*/
+
