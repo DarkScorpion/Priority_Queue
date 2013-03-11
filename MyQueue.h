@@ -124,18 +124,19 @@ void PeekAtNext(Queue &head)
 void GetNext(Queue &head)
 {
 	Queue a,b;
-	a = GetMaxPriority_Pointer(head);
+	a = GetMaxPriority_Pointer(head); //Получение ссылки на приорететный элемент
 	if (a == NULL) //Проверка возрощаймого значения
 	{
 		cout<<Rus("В очереди нет задач!\n");
 		return;
 	}
-	b = head->next; //Ссылка на первый элемент списка
+	b = head; //Ссылка на первый элемент списка
 	for(;b->next!=a;) //Поиск элемента перед приорететным
 		b = b->next;
-	cout<<Rus("Задача с высшим приорететом: ")<< a->task <<endl;
+	cout<<Rus("Извлечённая задача: ")<< a->task <<endl;
 	cout<<Rus("Приоретет задачи: ")<< a->priority <<endl;
-	b->next = a->next; //Перенос указателей
+	if(head->next == a) head->next = a->next; //Проверка на первый элемент списка
+		else b->next = a->next; //Перенос указателей
 	delete(a); //Освобождение памяти
 }
 
