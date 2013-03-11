@@ -47,7 +47,7 @@ void PrintQueue(Queue &Start)
 		if (curr->next == NULL) break; //Выход из цикла перебора списка
 			else curr = curr->next;
 	}
-	cout<<"*********\n";
+	cout<<"**************************\n";
 
 }
 
@@ -61,7 +61,7 @@ void AddTask(Queue &head)
 	cin>>z;
 	if (z<=0 || z>maxPriority) //Приверка правильности ввода
 		{
-		cout<<Rus("Приоретет не может быть меньше  или равен нулю и больше 100 \n");
+		cout<<Rus("Приоретет не может быть меньше или равен нулю и больше 100 \n");
 		return;
 		}
 	cout<<Rus("Введите описание задачи: ");
@@ -86,41 +86,32 @@ void AddTask(Queue &head)
 	curr->next = NULL;
 }
 
-
-
+//Извлечение элемента с наивысшим приорететом
+void PeekAtNext(Queue &head)
+{
+	int maxPrior = 0;
+	Queue taget;
+	Queue curr = head;
+	if (curr->next == NULL) {cout<<Rus("В очереди нет задач!\n"); return;}
+		else curr = curr->next;
+			
+	//Поиск максимальной по приоретету задачи
+	
+	while(true)
+	{
+		if(curr->priority > maxPrior)
+		{
+			taget = curr;
+			maxPrior = curr->priority;
+		}
+	if (curr->next == NULL) break;
+		else curr = curr->next;
+	}
+	cout<<Rus("Задача с высшим приорететом: ")<<taget->task<<endl;
+	cout<<Rus("Приоретет: ")<<taget->priority<<endl;
+}
 
 /*
-Queue CreatNode(int n) //Создание списка
-{
-	int i;
-	Queue curr;
-	Queue Head;
-	Head=new List;
-	curr=Head;
-	cout<<Rus("Введите данные: \n");
-	for(i=0;i<n;i++)
-		{
-		cin>>curr->priority;
-		curr->next=new(List);
-		if (i == n-1) curr->next=NULL;
-			else curr=curr->next;
-		}
-	return Head;
-}
-
-void ShowStack(Queue &head)	//Просмотр cписка
-{	
-	cout<<Rus("Вывод списка на экран: ");
-	Queue curr;
-	curr=head;
-	for(;curr!=NULL;) 
-		{
-		cout<<curr->priority<<" ";
-		curr=curr->next;
-		}
-	cout<<endl;
-}
-
 Queue Find(Queue &head, int n) //Поиск элемента
 {
 	int i;
