@@ -86,17 +86,15 @@ void AddTask(Queue &head)
 	curr->next = NULL;
 }
 
-//Извлечение элемента с наивысшим приорететом
-void PeekAtNext(Queue &head)
-{
-	int maxPrior = 0;
+//Поиск указателя на элемент с наиболее высоким приорететом
+Queue GetMaxPriority_Pointer(Queue &head)
+{	
 	Queue taget;
+	int maxPrior = 0;
 	Queue curr = head;
-	if (curr->next == NULL) {cout<<Rus("В очереди нет задач!\n"); return;}
+	if (curr->next == NULL) return NULL;
 		else curr = curr->next;
-			
 	//Поиск максимальной по приоретету задачи
-	
 	while(true)
 	{
 		if(curr->priority > maxPrior)
@@ -107,37 +105,27 @@ void PeekAtNext(Queue &head)
 	if (curr->next == NULL) break;
 		else curr = curr->next;
 	}
+	return taget;
+}
+
+//Вывод элемента с наивысшим приорететом
+void PeekAtNext(Queue &head)
+{
+	Queue taget = GetMaxPriority_Pointer(head);
+	if (taget == NULL) 
+	{
+		cout<<Rus("В очереди нет задач!\n");
+		return;
+	}
 	cout<<Rus("Задача с высшим приорететом: ")<<taget->task<<endl;
 	cout<<Rus("Приоретет: ")<<taget->priority<<endl;
 }
-
 /*
-Queue Find(Queue &head, int n) //Поиск элемента
+//Извлечение элемента с наивысшим приорететом
+void GetNext(Queue &head)
 {
-	int i;
-	Queue curr,temp;
-	curr=head;
-	for(i=0;i!=n;i++) 
-		{
-		temp=curr;
-		curr=curr->next;
-		}
-	return temp;
-}
 
-void ReplaceNode(Queue &head) //Замена элементов в списке
-{
-	Queue a,b;
-	int n1,n2,c;
-	cout<<Rus("Какие элементы поменять местами? \n");
-	cin>>n1;
-	a=Find(head,n1); 
-	cout<< "a=" << a->priority <<endl;
-	cin>>n2;
-	b=Find(head,n2); 
-	cout<< "b=" << b->priority <<endl;
-	c=a->priority;
-	a->priority=b->priority;
-	b->priority=c;	
+
+
 }
 */
