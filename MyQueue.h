@@ -1,7 +1,7 @@
 #include <windows.h>
 #include <string.h>
 
-#define maxLength 25
+//#define maxLength 25
 #define maxPriority 100
 
 //Функция для коректного отображения кирилицы
@@ -135,8 +135,7 @@ void GetNext(Queue &head)
 		b = b->next;
 	cout<<Rus("Извлечённая задача: ")<< a->task <<endl;
 	cout<<Rus("Приоретет задачи: ")<< a->priority <<endl;
-	if(head->next == a) head->next = a->next; //Проверка на первый элемент списка
-		else b->next = a->next; //Перенос указателей
+	b->next = a->next; //Перенос указателя
 	delete(a); //Освобождение памяти
 }
 
