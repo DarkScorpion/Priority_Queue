@@ -1,5 +1,5 @@
 #include <windows.h>
-#include <string.h>
+//#include <string.h>
 
 //#define maxLength 25
 #define maxPriority 100
@@ -60,7 +60,7 @@ void AddTask(Queue &head)
 	cin>>z;
 	if (z<=0 || z>maxPriority) //Приверка правильности ввода
 		{
-		cout<<Rus("Приоретет не может быть меньше или равен нулю и больше 100 \n");
+		cout<<Rus("Приоретет не может быть меньше или равен нулю или больше 100 \n");
 		return;
 		}
 	cout<<Rus("Введите описание задачи: ");

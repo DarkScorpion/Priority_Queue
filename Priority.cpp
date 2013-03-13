@@ -12,20 +12,22 @@ void main()
 {
 	int z;
 	Queue Queue_Start;
-	Queue_Start = CreateQueue();
+	Queue_Start = CreateQueue(); //создание очереди
 	cout<<Rus(strIntro);
 	while(true)
 	{
-		cout<<Rus("#> ");
+		cout<<Rus("$> ");
 		cin>>z;
 		switch (z)
 		{
-			case (1): AddTask(Queue_Start); break;
-			case (2): PrintQueue(Queue_Start); break;
-			case (3): PeekAtNext(Queue_Start); break;
-			case (4): GetNext(Queue_Start); break;
+			case (1): AddTask(Queue_Start); break;  //Добавления элемента в очередь
+			case (2): PrintQueue(Queue_Start); break; //Вывод на экран элементов очереди
+			case (3): PeekAtNext(Queue_Start); break; //Вывод на экран приоретеного элемента
+			case (4): GetNext(Queue_Start); break;	//Извлечение из очереди приорететного элемента
+			case (0): cout<<Rus("Работы программы окончена!"); return; //Выход из программы
+			default: cout<<Rus("Неправильный ввод, попробуйте снова!\n");
 		}
-		if (z==0) break; //Выход из главного цикла
+		//if (z==0) break; //Выход из главного цикла
 	}
-	cout<<Rus("Конец работы программы!");
+	//cout<<Rus("Конец работы программы!");
 }
