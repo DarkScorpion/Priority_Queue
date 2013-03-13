@@ -1,7 +1,6 @@
 #include <windows.h>
-//#include <string.h>
 
-//#define maxLength 25
+#define maxLength 15
 #define maxPriority 100
 
 //Функция для коректного отображения кирилицы
@@ -50,6 +49,12 @@ void PrintQueue(Queue &Start)
 	cout<<"**************************\n";
 }
 
+int slen(string s)
+{
+	int i;
+	for(i=0;s[i]!=0;i++);
+	return i;
+}
 //Функция добавления элемента в очередь
 void AddTask(Queue &head)
 {
@@ -65,13 +70,13 @@ void AddTask(Queue &head)
 		}
 	cout<<Rus("Введите описание задачи: ");
 	cin>>strInput;
-	/*
-	if (strlen(strInput) > maxLength) //Приверка правильности ввода //(всегда возврощает 25, нужна строка)
+	
+	if (slen(strInput) > maxLength) //Приверка правильности ввода //(всегда возврощает 25, нужна строка)
 		{
 		cout<<Rus("Слишком длинное описание \n");
 		return;
 		}
-	*/
+	
 	// Поиск конца спика
 	Queue curr = head;
 	for(;curr->next!=NULL;)
