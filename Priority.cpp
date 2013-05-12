@@ -16,8 +16,9 @@ void main()
 	cout<<Rus(strIntro);
 	while(true)
 	{
-		cout<<Rus("$> ");
-		cin>>z;
+		cout<<Rus("$ ");
+		//cin>>z;
+		z = getInt(); //неработает коректно!
 		switch (z)
 		{
 			case (1): AddTask(Queue_Start); break;  //Добавления элемента в очередь

@@ -1,7 +1,8 @@
 #include <windows.h>
+#include <iostream.h>
 
 #define maxLength 15
-#define maxPriority 100
+#define maxPriority 20
 
 //Функция для коректного отображения кирилицы
 char*Rus(const char* text);
@@ -19,6 +20,18 @@ struct List
 	List *next;
 };
 typedef List *Queue;
+
+int getInt()
+{
+	int z;
+	while(!(cin>>z) || cin.get() != '\n')
+    {
+        cout<<"Неправильный ввод, введите число: ";
+        cin.clear(); 	// сбрасывает все биты потока, то есть поток становится "хорошим"
+        cin.sync();		//Удалим данные из буффера
+    }
+	return z;
+}
 
 //Функция создания очереди и возврощение указателя на головной элемент
 Queue CreateQueue()
@@ -71,7 +84,7 @@ void AddTask(Queue &head)
 	cout<<Rus("Введите описание задачи: ");
 	cin>>strInput;
 	
-	if (slen(strInput) > maxLength) //Приверка правильности ввода //(всегда возврощает 25, нужна строка)
+	if (slen(strInput) > maxLength) //Приверка правильности ввода
 		{
 		cout<<Rus("Слишком длинное описание \n");
 		return;
@@ -121,7 +134,7 @@ void PeekAtNext(Queue &head)
 		cout<<Rus("В очереди нет задач!\n");
 		return;
 	}
-	cout<<Rus("Задача с высшим приорететом: ")<<taget->task<<endl;
+	cout<<Rus("Задача с наивысшим приорететом: ")<<taget->task<<endl;
 	cout<<Rus("Приоретет задачи: ")<<taget->priority<<endl;
 }
 
@@ -143,4 +156,3 @@ void GetNext(Queue &head)
 	b->next = a->next; //Перенос указателя
 	delete(a); //Освобождение памяти
 }
-
