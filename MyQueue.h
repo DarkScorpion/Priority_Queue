@@ -15,9 +15,9 @@ char* Rus(const char* text)
 //Структура списка-очереди
 struct List
 {
-	int priority;
-	string task;
-	List *next;
+	int priority; 	//приоретет
+	string task; 	//имя задачи
+	List *next;		//указатель но следущий элемент
 };
 typedef List *Queue;
 
@@ -27,7 +27,7 @@ int getInt()
 	while(!(cin>>z) || cin.get() != '\n')
     {
         cout<<"Неправильный ввод, введите число: ";
-        cin.clear(); 	// сбрасывает все биты потока, то есть поток становится "хорошим"
+        cin.clear(); 	//сбрасывает все биты потока, то есть поток становится "хорошим"
         cin.sync();		//Удалим данные из буффера
     }
 	return z;
@@ -61,7 +61,7 @@ void PrintQueue(Queue &Start)
 	}
 	cout<<"**************************\n";
 }
-
+//Самописаня функция поиска длины строки
 int slen(string s)
 {
 	int i;
@@ -119,8 +119,8 @@ Queue GetMaxPriority_Pointer(Queue &head)
 			taget = curr;
 			maxPrior = curr->priority;
 		}
-	if (curr->next == NULL) break;
-		else curr = curr->next;
+		if (curr->next == NULL) break;
+			else curr = curr->next;
 	}
 	return taget;
 }

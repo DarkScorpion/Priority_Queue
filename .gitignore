@@ -1,6 +1,10 @@
-#This Project Ignor
+#This Project Ignore
 *.exe
 *.tds
+*.dsp
+*.dsw
+*.opt
+*.plg
 
 #################
 ## Eclipse

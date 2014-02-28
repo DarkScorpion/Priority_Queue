@@ -16,7 +16,7 @@ void main()
 	cout<<Rus(strIntro);
 	while(true)
 	{
-		cout<<Rus("$ ");
+		cout<<Rus("?> ");
 		//cin>>z;
 		z = getInt(); //неработает коректно!
 		switch (z)
